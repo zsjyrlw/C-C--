@@ -1,0 +1,60 @@
+/*************************************************************************
+    > File Name: string.cpp
+# Author: 张绍军
+# mail: zsjyrlw@yahoo.com.cn
+    > Created Time: 2013年04月13日 星期六 15时09分47秒
+ ************************************************************************/
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+class String{
+
+  public:
+		String():data(0){
+
+			cout<<"String()"<<endl;
+		}
+		String(const char *str):data(0){
+			int len = strlen( str );
+			data = new char[len+1];
+			strcpy(data,str);
+			cout<<"String (char*)"<<endl;
+		}
+		String(const String &str):data(0){
+			if( this != &str )
+			{
+				delete []data;
+				data = new char[strlen(str.data)+1];
+				strcpy( data,str.data );
+
+			}
+			cout<<"String(const String&)"<<endl;
+		}
+		~String(){
+			cout<<"~String()";
+			cout<<data;
+			cout<<endl;
+			delete []data;
+		}
+		String& operator=(const String &str){
+			if( this == &str )
+			{
+				return *this;
+			}
+			delete []data;
+			data = new char[ strlen(str.data)+1 ];
+			strcpy(data,str.data);
+			cout<<"String& operator=(const String&)"<<endl;
+			return *this;
+		}
+	private:
+		char *data;
+};
+
+int main()
+{
+	String s("hello");
+	return 0;
+}
