@@ -1,0 +1,97 @@
+/*************************************************************************
+    > File Name: ex04.cpp
+# Author: 张绍军
+# mail: zsjyrlw@yahoo.com.cn
+    > Created Time: 2013年04月12日 星期五 10时33分02秒
+ ************************************************************************/
+#include <iostream>
+
+using namespace std;
+
+class Parent{
+  public:
+		Parent():iParent(10){
+
+		}
+
+		virtual void f(){
+			cout<<"Parent::f"<<endl;
+		}
+
+		virtual void h(){
+			cout<<"Parent::h"<<endl;
+		}
+
+		virtual void g(){
+			cout<<"Parent::g"<<endl;
+		}
+
+	public:
+		int iParent;
+};
+
+class Child : public Parent{
+	public:
+		Child():iChild(100){
+		}
+
+		virtual void f(){
+			cout<<"Child::f"<<endl;
+		}
+
+		virtual void h_child(){
+			cout<<"Child::h_child"<<endl;
+		}
+
+		virtual void g_child(){
+			cout<<"Child::g_child"<<endl;
+		}
+
+	public:
+		int iChild;
+
+};
+
+class Grandchild : public Child{
+	public:
+		Grandchild():iGrandchild(1000){
+
+		}
+		virtual void f(){
+			cout<<"Grandchild::f"<<endl;
+		}
+
+		virtual void h_child(){
+			cout<<"Grandchild::h_child"<<endl;
+		}
+
+		virtual void g_grandchild(){
+			cout<<"Grandchild::g_grandchild"<<endl;
+		}
+
+	public:
+		int iGrandchild;
+};
+
+int main()
+{
+	typedef void(*Fun)(void);
+	Fun pFun;	
+	Grandchild gc;
+	int **pVtab = (int**)(&gc);
+
+	cout<<"[0]Grandchild::pVtab->"<<endl;
+
+	for( int i = 0; (Fun)pVtab[0][i] != NULL; ++i )
+	{
+		cout<<"  ["<<i<<"] ";
+		pFun = (Fun)pVtab[0][i];
+		pFun();
+	}
+
+	cout<<"[1]Parent.iParent = "<< pVtab[1]<<endl;
+	cout<<"[2]Child.iChild = "<< (int)pVtab[2]<<endl;
+	cout<<"[3]Grandchild.iGrandchild = "<<(int)pVtab[3]<<endl;
+
+	return 0;
+}
