@@ -1,0 +1,54 @@
+MyEclipse       Visual Studio            　 IDEA            NOTE
+F5           　　F11            　　　　　   F7               单步执行 (step into)
+F6           　　F10            　　　　　   F6               单方法执行 (step over)
+F7           　　Shift+F11        　　　　   Shift+F8         跳出方法
+F8           　　F5            　　　　　　  Shift+F8         运行到下一个端点
+F11          　  F5            　　　　　　  启动调试
+ctrl+1        　 无            　　　　　　  错误助手
+alt+/        　　ctrl+j            　　　　  编程提示（方法提示）
+alt+/        　　ctrl+shift+space    　　    编程提示（参数提示）
+ctrl+/        　 ctrl+K+C (ctrl+K+U)         注释
+ctrl+shift+f     ctrl+K+D        　　　　    格式化代码
+ctrl+shift+o     alt+shift+F10        　　   导包
+
+
+
+IDEA 
+
+快捷搜索：Ctrl+F (Match Case:区分大小写，Words:全字匹配，Regex:正则匹配)
+批量替换：Ctrl+R
+全局搜索：Ctrl+N
+转到定义：F4
+
+注释：
+选中之后按Ctrl+/
+（1：二次取消注释）
+（2：块注释Ctrl+Shift+/）
+（3：在一个方法或类的开头，输入/**，然后按回车,自动根据参数和返回值生成注释模板）
+
+
+查找所有引用：
+鼠标选择代码Alt+F7(也可以鼠标右键Find Usages)
+
+快捷添加包：
+鼠标选中到未添加包的代码然后 Alt+Enter回车
+
+全局重命名：
+Shift+F6
+
+快速给变量构建Getter,Setter，快速给变量构建构造函数：
+选中变量然后Alt+Insert(也可以鼠标右键Generate)
+
+回到上一步：ctrl+alt+左
+回到下一步：ctrl+alt+右 
+
+运行项目：Shift+F10 
+启动调试：Shift+F9 
+
+具体调试(快捷键后面三个我一般习惯用鼠标点击)： 
+F9：跳到下一个断点，如果没有就执行程序到结束
+F8：step over 点击红色箭头指向的按钮，程序向下执行一行（如果当前行有方法调用，这个方法将被执行完毕返回，然后到下一行） 
+F7：step into 点击红色箭头指向的按钮，程序向下执行一行。如果该行有自定义方法，则运行进入自定义方法（不会进入官方类库的方法） 
+Alt+Shift+F7：force step into 该按钮在调试的时候能进入任何方法。 
+Shift+F8：step out 如果在调试的时候你进入了一个方法(如f2())，并觉得该方法没有问题，你就可以使用stepout跳出该方法，返回到该方法被调用处的下一行语句。 
+Ctrl+F2：停止调试 
