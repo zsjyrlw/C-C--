@@ -1,0 +1,50 @@
+1. Controller
+2. RestController
+
+3. RequestMapping( PostMapping GetMapping ...)
+   RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。
+   用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。
+   RequestMapping会将 HTTP 请求映射到 MVC 和 REST 控制器的处理方法上。
+   
+4. ResponseBody
+　  @responseBody注解的作用是将controller的方法返回的对象通过适当的转换器转换为指定的格式之后，写入到response对象的body区，通常用来返回JSON数据或者是XML
+　　数据，需要注意的呢，在使用此注解之后不会再走试图处理器，而是直接将数据写入到输入流中，他的效果等同于通过response对象输出指定格式的数据。
+
+　　@RequestMapping("/login")
+　　@ResponseBody
+　　public User login(User user){
+　　　　return user;
+　　}
+　　User字段：userName pwd
+　　那么在前台接收到的数据为：'{"userName":"xxx","pwd":"xxx"}'
+
+　　效果等同于如下代码：
+　　@RequestMapping("/login")
+　　public void login(User user, HttpServletResponse response){
+　　　　response.getWriter.write(JSONObject.fromObject(user).toString());
+　　}
+
+5. RequestBody
+   用于读取Request请求的body部分数据，所以请求方式为POST
+   @requestBody注解常用来处理httpHeaders的key是content-type类型，
+   对应的value不是默认的application/x-www-form-urlcoded编码的内容，
+   比如说：application/json或者是application/xml等。
+   一般情况下来说常用其来处理application/json类型
+   
+   @RequestParam注解接受的是来自于requestHeader中，即请求头，也就是在url中，格式为xxx?username=123&password=456，
+   @RequestBody注解接收的参数则是来自于requestBody中，即请求体中。
+   
+6. RequestParam
+   用于将请求参数区域的数据映射到控制层方法的参数上
+   用于将指定的请求参数赋值给方法中的形参
+
+  　如果直接要在Controller层返回一个页面，用注解@Controller;如果让其作为一个接口，用@RestController。
+　　@RequestBody一般接受请求体中的数据，@Requestparam接受请求头中的数据。
+    RequestBody只能用POST方法，
+	而Requestparam查询用GET方法，上传数据或者需要改变数据库中的值还是用POST。
+
+7. Autowired
+	Spring管理的Bean对象可以采用自动装配机制为属性赋值。
+	基于注解方式进行自动装配，
+	一般使用@Autowired,@Qualifer,@Resource这些注解。
+	@Autowired修饰构造方法，set方法，属性值底层完成DI依赖注入操作是通过反射调用set方法，或者构造方法为属性赋值
