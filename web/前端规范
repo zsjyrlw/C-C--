@@ -1,0 +1,10 @@
+核心框架：Vue
+状态管理：Vuex
+路由映射：vue-router
+UI组件库：Muse-UI,Element
+HTTP请求库：axios
+CSS的预处理框架: Stylus,中文文档
+资源加载打包工具：Webpack
+代码规范工具：eslint
+单元测试 vue-test-utils
+其他：ES6,node.js,npm
