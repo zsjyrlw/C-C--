@@ -1,17 +1,27 @@
 MyEclipse       Visual Studio            　 IDEA            NOTE
 F5           　　F11            　　　　　   F7               单步执行 (step into)
-F6           　　F10            　　　　　   F6               单方法执行 (step over)
-F7           　　Shift+F11        　　　　   Shift+F8         跳出方法
-F8           　　F5            　　　　　　  Shift+F8         运行到下一个端点
-F11          　  F5            　　　　　　  启动调试
-ctrl+1        　 无            　　　　　　  错误助手
-alt+/        　　ctrl+j            　　　　  编程提示（方法提示）
-alt+/        　　ctrl+shift+space    　　    编程提示（参数提示）
-ctrl+/        　 ctrl+K+C (ctrl+K+U)         注释
-ctrl+shift+f     ctrl+K+D        　　　　    格式化代码
-ctrl+shift+o     alt+shift+F10        　　   导包
+F6           　　F10            　　　　　   F8               单方法执行 (step over)
+F7           　　Shift+F11        　　　　   Shift+F8         跳出方法 Step Out
+F8           　　F5            　　　　　　  F9               resume programe 恢复程序
+F11          　  F5            　　　　　　   
+ctrl+1        　 无            　　　　　 
+alt+/        　　ctrl+j            　　 
+alt+/        　　ctrl+shift+space    　　    
+ctrl+/        　 ctrl+K+C (ctrl+K+U)          
+ctrl+shift+f     ctrl+K+D        　　　　   
+ctrl+shift+o     alt+shift+F10        　　   
 
-
+IDEA 调试按键
+F9            resume programe 恢复程序
+Alt+F10       show execution point 显示执行断点
+F8            Step Over 相当于eclipse的f6      跳到下一步
+F7            Step Into 相当于eclipse的f5就是  进入到代码
+Alt+shift+F7  Force Step Into 这个是强制进入代码
+Shift+F8      Step Out  相当于eclipse的f8跳到下一个断点，也相当于eclipse的f7跳出函数
+Atl+F9        Run To Cursor 运行到光标处
+ctrl+shift+F9   debug运行java类
+ctrl+shift+F10  正常运行java类
+alt+F8          debug时选中查看值
 
 IDEA 
 
